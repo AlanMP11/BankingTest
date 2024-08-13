@@ -63,7 +63,7 @@
             margin: 20px 30px;
             background: rgba(0,0,0,0.8);
         }
-        span{
+        .cta_span{
             display: block;
             padding: 25px 80px;
         }
@@ -76,7 +76,7 @@
             background: #fbff00;
         }
 
-        span::before, span::after{
+        .cta_span::before, .cta_span::after{
             content:"";
             width:2px;
             height:0;
@@ -87,11 +87,11 @@
         .buttonbanner:hover::before, .buttonbanner:hover::after{
             width: 100%;
         }
-        .buttonbanner:hover span::before, .buttonbanner:hover span::after{
+        .buttonbanner:hover .cta_span::before, .buttonbanner:hover .cta_span::after{
             height: 100%;
         }
 
-        span::after{
+        .cta_span::after{
             height:50%;
         }
         .btn-3::after{
@@ -100,7 +100,7 @@
             width:30%;
             transition-delay: 0.6s;
         }
-        .btn-3 span::after{
+        .btn-3 .cta_span::after{
             transition-delay: 0.4s;
             right: 0;
             bottom: 0
@@ -110,7 +110,7 @@
             top: 0;
             transition-delay: 0.2s;
         }
-        .btn-3 span::before{
+        .btn-3 .cta_span::before{
             transition-delay: 0s;
             left: 0;
             top: 0;
@@ -119,13 +119,13 @@
         .btn-3:hover::after{
             transition-delay: 0s;
         }
-        .btn-3:hover span::after{
+        .btn-3:hover .cta_span::after{
             transition-delay: 0.2s;
         }
         .btn-3:hover::before{
             transition-delay: 0.4s;
         }
-        .btn-3:hover span::before{
+        .btn-3:hover .cta_span::before{
             transition-delay: 0.6s;
         }
         /* Info section */
@@ -261,7 +261,7 @@
         <div>
             <h1>Invierte en tu Futuro</h1>
             <p>Protege y haz crecer tu patrimonio con nuestras pólizas de inversión</p>
-            <button class="buttonbanner btn-3"><span>Contrata tu Póliza</span></button>
+            <button class="buttonbanner btn-3"><span class="cta_span">Contrata tu Póliza</span></button>
         </div>
     </div>
     <!-- Info Section -->
