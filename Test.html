@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <title>Banco Seguro - Pólizas de Inversión</title>
+    
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: 'Josefin Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        /* Hero Image */
+        .hero {
+            background-image: url('./DA Bank_files/banner.png'); /* Reemplaza con la URL de tu imagen */
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-top: 10px;
+        }
+        /* Boton call to action */
+        .cta-button {
+            background-color: #fbff00;
+            color: rgb(251, 255, 0);
+            padding: 10px 20px;
+            font-size: 1.25rem;
+            border: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            cursor: pointer;
+            animation: pulse 2s infinite;
+        }
+
+        button{
+            display: inline-block;
+            position: relative;
+            background: none;
+            border: none;
+            color: #fbff00;
+            font-size: 18px;
+            cursor: pointer;
+            margin: 20px 30px;
+            background: rgba(0,0,0,0.8);
+        }
+        span{
+            display: block;
+            padding: 25px 80px;
+        }
+        button::before, button::after{
+            content:"";
+            width: 0;
+            height: 2px;
+            position: absolute;
+            transition: all 0.2s linear;
+            background: #fbff00;
+        }
+
+        span::before, span::after{
+            content:"";
+            width:2px;
+            height:0;
+            position: absolute;
+            transition: all 0.2s linear;
+            background: #fbff00;
+        }
+        button:hover::before, button:hover::after{
+            width: 100%;
+        }
+        button:hover span::before, button:hover span::after{
+            height: 100%;
+        }
+
+        span::after{
+            height:50%;
+        }
+        .btn-3::after{
+            right:0;
+            bottom: 0;
+            width:30%;
+            transition-delay: 0.6s;
+        }
+        .btn-3 span::after{
+            transition-delay: 0.4s;
+            right: 0;
+            bottom: 0
+        }
+        .btn-3::before{
+            right: 0;
+            top: 0;
+            transition-delay: 0.2s;
+        }
+        .btn-3 span::before{
+            transition-delay: 0s;
+            left: 0;
+            top: 0;
+        }
+
+        .btn-3:hover::after{
+            transition-delay: 0s;
+        }
+        .btn-3:hover span::after{
+            transition-delay: 0.2s;
+        }
+        .btn-3:hover::before{
+            transition-delay: 0.4s;
+        }
+        .btn-3:hover span::before{
+            transition-delay: 0.6s;
+        }
+        /* Info section */
+        .info-section {
+            background-color: #f8f9fa;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .info-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .info-section p {
+            font-size: 1.25rem;
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Contenedor de widgets */
+        .widgets-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        /* Widget individual */
+        .widget {
+            background-color: white;
+            margin: 10px;
+            padding: 20px;
+            width: calc(33% - 40px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .widget img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .widget h2 {
+            font-size: 1.5rem;
+            margin: 15px 0;
+        }
+
+        .widget p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .widget:hover {
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer a {
+            color: #fff;
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        footer .social-icons a {
+            font-size: 1.5rem;
+            margin: 0 10px;
+        }
+
+        /* Estilos para pantallas más pequeñas */
+        @media (max-width: 768px) {
+            .widget {
+                width: calc(50% - 40px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .widget {
+                width: calc(100% - 40px);
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Navbar -->
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <img src="./DA Bank_files/DA_Bank_onbk (1).png" width="150px" height="50px">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#nosotros">Nosotros</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#calcula-inversion">Calcula tu Inversión</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contratacion">Contratación</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Hero Image Section -->
+    <div class="hero">
+        <div>
+            <h1>Invierte en tu Futuro</h1>
+            <p>Protege y haz crecer tu patrimonio con nuestras pólizas de inversión</p>
+            <button class="btn-3"><span>Contrata tu Póliza</span></button>
+        </div>
+    </div>
+    <!-- Info Section -->
+    <div class="info-section">
+        <h2>Beneficios de Nuestras Pólizas de Inversión</h2>
+        <p>
+            Las pólizas de inversión de Banco Seguro están diseñadas para ofrecerte seguridad financiera,
+            crecimiento patrimonial y la tranquilidad de saber que tu futuro está protegido. Con opciones flexibles
+            y asesoría personalizada, podrás planificar tu inversión de manera eficiente y segura.
+        </p>
+    </div>
+    <!-- Widgets Section -->
+    <div class="widgets-container">
+        <div class="widget">
+            <img src="./assets/2a40aa97-fdd6-43f6-81f6-41e26f2fded7" alt="Oportunidad de Crecimiento"> <!-- Reemplaza con la URL de tu imagen -->
+            <h2>Oportunidad de Crecimiento</h2>
+            <p>Multiplica tus ahorros con nuestras tasas competitivas.</p>
+        </div>
+        <div class="widget">
+            <img src="./assets/05756fe9-35ef-456a-999d-b69742997814" alt="Seguridad Financiera">
+            <h2>Seguridad Financiera</h2>
+            <p>Asegura el bienestar de tu familia a largo plazo.</p>
+        </div>
+        <div class="widget">
+            <img src="./assets/52722b7f-2b6b-4775-9d9c-cef38c0623fa" alt="Diversificación Inteligente">
+            <h2>Diversificación Inteligente</h2>
+            <p>Invierte en una amplia gama de opciones para reducir riesgos.</p>
+        </div>
+        <div class="widget">
+            <img src="./assets/886c8661-3ea7-4f7d-a26a-e7ef20d21270" alt="Asesoría Personalizada">
+            <h2>Asesoría Personalizada</h2>
+            <p>Recibe consejos expertos adaptados a tus metas.</p>
+        </div>
+        <div class="widget">
+            <img src="./assets/aafbc74a-3120-4ae4-9618-9f4e8034efad" alt="Rendimientos Consistentes">
+            <h2>Rendimientos Consistentes</h2>
+            <p>Confía en nuestros productos que ofrecen estabilidad y crecimiento.</p>
+        </div>
+        <div class="widget">
+            <img src="./assets/f9b3b505-72de-4001-8640-c59b4ca64fcd" alt="Flexibilidad y Control">
+            <h2>Flexibilidad y Control</h2>
+            <p>Maneja tus inversiones con total libertad y seguridad.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="new_footer_top" bis_skin_checked="1">
+            <div class="container" bis_skin_checked="1">
+                <div class="row" style="flex-wrap: nowrap;" bis_skin_checked="1">
+                    <div class="col-lg-4 col-md-6" bis_skin_checked="1">
+                        <div class="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInLeft;" bis_skin_checked="1">
+                            <h3 class="f-title f_600 t_color f_size_18">Product</h3>
+                            <ul class="list-unstyled f_list">
+                                <li><a href="https://banking.digitalalchemy.mx/#">Saving</a></li>
+                                <li><a href="https://banking.digitalalchemy.mx/#">Credit Card</a></li>
+                                <li><a href="https://banking.digitalalchemy.mx/#">Loans</a></li>
+                                <li><a href="https://banking.digitalalchemy.mx/#">Home Insurane</a></li>
+                                <li><a href="https://banking.digitalalchemy.mx/#">Investments</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6" bis_skin_checked="1">
+                        <div class="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInLeft;" bis_skin_checked="1">
+                            <h3 class="f-title f_600 t_color f_size_18">About Us</h3>
+                            <ul class="list-unstyled f_list">
+                                <li><a href="https://banking.digitalalchemy.mx/#">Why DA</a></li>
+                                <li><a href="https://banking.digitalalchemy.mx/#">Our Partner</a></li>
+                                <li><a href="https://banking.digitalalchemy.mx/#">Meet The Team</a></li>
+                                <li><a href="https://banking.digitalalchemy.mx/#">Company History</a></li>
+                                <li><a href="https://banking.digitalalchemy.mx/#">Careers</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6" bis_skin_checked="1">
+                        <div class="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInLeft;" bis_skin_checked="1">
+                            <h3 class="f-title f_600 t_color f_size_18">About the Site</h3>
+                            <ul class="list-unstyled f_list">
+                                <li><a href="https://banking.digitalalchemy.mx/#">Security Statement</a></li>
+                                <li><a href="https://banking.digitalalchemy.mx/#">Legal Notice</a></li>
+                                <li><a href="https://banking.digitalalchemy.mx/#">Privacy Policy</a></li>
+                                <li><a href="https://banking.digitalalchemy.mx/#">Terms and Condidions</a></li>
+                                <li><a href="https://banking.digitalalchemy.mx/#">Site Map</a></li>
+                                <li><a href="https://banking.digitalalchemy.mx/#">Accessibility</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div div class="row" style="flex-wrap: nowrap;" bis_skin_checked="1">
+                    <div class="col-lg-12 col-md-12" bis_skin_checked="1">
+                        <div class="f_widget social-widget pl_70 wow fadeInLeft" data-wow-delay="0.8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInLeft;" bis_skin_checked="1">
+                            <img src="./DA Bank_files/DA_Bank_onbk (1).png" width="150px" height="50px">
+                            <div class="f_social_icon" style="padding: 10px;" bis_skin_checked="1">
+                                <a href="https://banking.digitalalchemy.mx/#"><img src="./DA Bank_files/facebook-f.svg" width="20px" height="20px" style="margin: 10px;"></a>
+                                <a href="https://banking.digitalalchemy.mx/#"><img src="./DA Bank_files/twitter.svg" width="20px" height="20px" style="margin: 10px;"></a>
+                                <a href="https://banking.digitalalchemy.mx/#"><img src="./DA Bank_files/linkedin-in.svg" width="20px" height="20px" style="margin: 10px;"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer_bottom" bis_skin_checked="1">
+            <div class="container" bis_skin_checked="1">
+                <div class="row align-items-center" bis_skin_checked="1">
+                    <div class="col-lg-12 col-sm-7" bis_skin_checked="1">
+                        <p class="mb-0 f_400">© 2016 - 2024 Digital Alchemy Ltd. All Rights Reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
