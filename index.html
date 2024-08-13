@@ -67,7 +67,7 @@
             display: block;
             padding: 25px 80px;
         }
-        button::before, button::after{
+        .buttonbanner::before, button::after{
             content:"";
             width: 0;
             height: 2px;
@@ -84,10 +84,10 @@
             transition: all 0.2s linear;
             background: #fbff00;
         }
-        button:hover::before, button:hover::after{
+        .buttonbanner:hover::before, .buttonbanner:hover::after{
             width: 100%;
         }
-        button:hover span::before, button:hover span::after{
+        .buttonbanner:hover span::before, .buttonbanner:hover span::after{
             height: 100%;
         }
 
